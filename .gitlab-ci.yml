@@ -10,8 +10,9 @@ build:
   script:
     - mvn clean package -DskipTests
   artifacts:
+    when: always
     paths:
-      - target/*.jar
+      - target/surefire-reports/
 
 # test 階段：負責執行單元測試
 test:
