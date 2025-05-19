@@ -1,8 +1,41 @@
 # 定義全局變數
-stages:
-  - test
+variables:
+  DOCKER_HUB_REPO: ian2022che/ros-1  # Docker Hub 倉庫名稱
+  IMAGE_TAG: latest  # Docker Image標籤
 
-test-job:
-  stage: test
+stages: # 定義階段
+  - build
+  - test
+  - deploy
+
+# 構建階段
+build:
+  stage: build
+  image: maven:3.8.5-openjdk-17  # 使用 Maven image作為構建環境
   script:
-    - echo "Hello from GitLab CI"
+    - mvn clean package -DskipTests # 打包應用程式為JAR檔
+    - mkdir -p /app/target  # 創建目標目錄
+    - cp target/*.jar /app/target  # 複製 JAR 文件到目標目錄
+  artifacts:
+    paths:
+      - target/*.jar
+
+# 單元測試階段
+test:
+  stage: test
+  image: maven:3.8.5-openjdk-17   # 使用 Maven image作為構建環境
+  script:
+    - echo "Running test script" # 執行單元測試，這裡只是簡單打印沒有實際運行單元測試
+
+# 部屬階段
+deploy:
+  stage: deploy
+  image: docker:latest
+  services:
+    - docker:dind  # 使用 Docker-in-Docker 服務
+  before_script:
+    - echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_USERNAME --password-stdin  # 登入到 Docker Hub
+  script:
+    - cp target/*.jar app.jar  # 複製構建階段生成的 .jar 文件到部屬階段的工作目錄
+    - docker build -t $DOCKER_HUB_REPO:$IMAGE_TAG .  # 構建 Docker Image
+    - docker push $DOCKER_HUB_REPO:$IMAGE_TAG  # 上傳Image到 Docker Hub
