@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <title>統一模板</title>
+</head>
+<body>
+<header>這是固定的 Header</header>
+
+<nav>
+  <a th:href="@{/orders}">訂單檢視</a>
+  <a th:href="@{/orders/create}">訂菜</a>
+  <a th:href="@{/dishes}">菜餚</a>
+</nav>
+
+<main layout:fragment="content">
+  內容區塊（預設）
+</main>
+
+<footer>固定 Footer</footer>
+</body>
+</html>

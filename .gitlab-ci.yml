@@ -1,0 +1,8 @@
+# 定義全局變數
+stages:
+  - test
+
+test-job:
+  stage: test
+  script:
+    - echo "Hello from GitLab CI"

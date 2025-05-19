@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:15.2-alpine
+    container_name: restaurant-postgres
+
+    restart: always
+    environment:
+      POSTGRES_USER: Bill
+      POSTGRES_PASSWORD: bill21250025
+      POSTGRES_DB: BillDB
+    ports:
+      - "5436:5432"  # 確認此處是 webnew_mynetwork
+
+  dbGUI:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: bill21250025@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 21250025
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
