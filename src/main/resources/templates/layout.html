@@ -2,10 +2,73 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
+  <meta charset="UTF-8">
   <title>統一模板</title>
+
+  <!-- 引入 Google Fonts Playfair Display -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", "Garamond", "Palatino Linotype", serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px 0;
+      width: 100%; /* 滿版 */
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 5px 10px;
+      user-select: none;
+      transition: color 0.3s, background-color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+      background-color: #444;
+    }
+
+    main {
+      padding: 30px;
+      min-height: 400px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-<header>這是固定的 Header</header>
+<header>
+  Restaurant
+</header>
 
 <nav>
   <a th:href="@{/orders}">訂單檢視</a>
@@ -17,6 +80,8 @@
   內容區塊（預設）
 </main>
 
-<footer>固定 Footer</footer>
+<footer>
+  &copy; 2025 餐廳系統 - All Rights Reserved.
+</footer>
 </body>
 </html>
