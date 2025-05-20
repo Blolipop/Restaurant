@@ -83,7 +83,6 @@
 					<argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
 					<forkCount>1</forkCount>
 					<reuseForks>false</reuseForks>
-					<enableProcessChecker>false</enableProcessChecker>
 				</configuration>
 			</plugin>
 			<plugin>
