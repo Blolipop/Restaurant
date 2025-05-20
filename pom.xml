@@ -78,12 +78,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M7</version> <!-- 或你用的版本 -->
+				<version>3.0.0</version>
 				<configuration>
-					<argLine>
-						--add-opens java.base/java.lang=ALL-UNNAMED
-						-javaagent:${settings.localRepository}/org/mockito/mockito-core/4.11.0/mockito-core-4.11.0.jar
-					</argLine>
+					<argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
+					<forkCount>1</forkCount>
+					<reuseForks>false</reuseForks>
+					<enableProcessChecker>false</enableProcessChecker>
 				</configuration>
 			</plugin>
 			<plugin>
