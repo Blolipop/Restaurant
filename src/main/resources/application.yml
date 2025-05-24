@@ -12,3 +12,5 @@ spring:
 
   thymeleaf:
     cache: false
+jwt:
+  secret: YWJjMTIzIT8kKiYoKS0r

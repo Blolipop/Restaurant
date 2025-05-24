@@ -1,9 +1,10 @@
-package com.order.Restarant.Service;
+package com.order.Restarant.Service.order;
 
-import com.order.Restarant.Repo.DishRepository;
-import com.order.Restarant.Repo.DishTypeRepository;
-import com.order.Restarant.model.DishEntity;
-import com.order.Restarant.model.DishTypeEntity;
+
+import com.order.Restarant.Repo.order.DishRepository;
+import com.order.Restarant.Repo.order.DishTypeRepository;
+import com.order.Restarant.model.order.DishEntity;
+import com.order.Restarant.model.order.DishTypeEntity;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

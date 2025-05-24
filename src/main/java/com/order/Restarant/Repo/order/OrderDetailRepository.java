@@ -1,6 +1,6 @@
-package com.order.Restarant.Repo;
+package com.order.Restarant.Repo.order;
 
-import com.order.Restarant.model.OrderDetailEntity;
+import com.order.Restarant.model.order.OrderDetailEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface OrderDetailRepository extends JpaRepository<OrderDetailEntity, Long> {

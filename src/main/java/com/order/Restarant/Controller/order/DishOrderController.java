@@ -1,10 +1,11 @@
-package com.order.Restarant.Controller;
+package com.order.Restarant.Controller.order;
 
-import com.order.Restarant.Service.DishService;
-import com.order.Restarant.Service.OrderService;
-import com.order.Restarant.model.DishEntity;
-import com.order.Restarant.model.OrderDetailEntity;
-import com.order.Restarant.model.OrderEntity;
+
+import com.order.Restarant.Service.order.DishService;
+import com.order.Restarant.Service.order.OrderService;
+import com.order.Restarant.model.order.DishEntity;
+import com.order.Restarant.model.order.OrderDetailEntity;
+import com.order.Restarant.model.order.OrderEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

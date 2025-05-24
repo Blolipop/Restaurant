@@ -52,3 +52,27 @@
 </div>
 </body>
 </html>
+<script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const token = localStorage.getItem("token");
+
+            if (!token) {
+                alert("請先登入！");
+                window.location.href = "/login";
+                return;
+            }
+
+            // 只是觸發後端 filter 驗證，不在乎回傳內容
+            await fetch("/api/dish", {
+                method: "GET",
+                headers: {
+                    "Authorization": "Bearer " + token
+                }
+            }).then(res => {
+                if (!res.ok) {
+                    alert("未授權，請重新登入");
+                    window.location.href = "/login";
+                }
+            });
+        });
+</script>

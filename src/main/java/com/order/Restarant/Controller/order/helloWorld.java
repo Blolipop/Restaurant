@@ -1,4 +1,4 @@
-package com.order.Restarant.Controller;
+package com.order.Restarant.Controller.order;
 
 import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class helloWorld {
     }
 
     @PostMapping("/nonhello")
-    public String jjj(@RequestBody  OrderDetailsRequest orderDetailsRequest){
+    public String jjj(@RequestBody OrderDetailsRequest orderDetailsRequest){
         System.out.println(orderDetailsRequest.getDishId());
         return  "hello";
     }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>註冊</title>
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: "Georgia", "Garamond", "Times New Roman", serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 300px;
+        }
+
+        label {
+            font-size: 0.9rem;
+        }
+
+        input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 0.6rem;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>Restaurant</h1>
+<h2>註冊</h2>
+<form id="register-form" method="post">
+    <label for="id">ID</label>
+    <input type="text" id="id" required />
+
+    <label for="username">使用者名稱</label>
+    <input type="text" id="username" required />
+
+    <label for="password">密碼</label>
+    <input type="password" id="password" required />
+
+    <button type="submit">註冊</button>
+</form>
+
+<script>
+    document.getElementById('register-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const payload = {
+            id: Number(document.getElementById('id').value),
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value
+        };
+
+        fetch('/api/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("註冊成功，導向登入頁！");
+                window.location.href = "/login";
+            } else {
+                return response.text().then(text => {
+                    alert("註冊失敗：" + text);
+                });
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert("註冊出錯！");
+        });
+    });
+</script>
+</body>
+</html>
+
+

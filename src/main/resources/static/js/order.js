@@ -138,14 +138,6 @@ $(document).ready(function () {
         .then(data => {
             alert('訂單已送出！訂單編號：' + data.orderId);
             $('#createOrderModal').modal('hide');
-
-    // 清空訂單明細清單
-            $('#orderSummary').empty();
-
-            // 更新總價顯示
-            updateTotal();
-
-
         })
         .catch(error => {
             console.error('錯誤:', error);

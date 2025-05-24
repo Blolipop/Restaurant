@@ -1,4 +1,5 @@
-package com.order.Restarant.model;
+package com.order.Restarant.model.order;
+
 
 import jakarta.persistence.*;
 import lombok.Data;

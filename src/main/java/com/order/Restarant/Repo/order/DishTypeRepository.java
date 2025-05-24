@@ -1,6 +1,6 @@
-package com.order.Restarant.Repo;
+package com.order.Restarant.Repo.order;
 
-import com.order.Restarant.model.DishTypeEntity;
+import com.order.Restarant.model.order.DishTypeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

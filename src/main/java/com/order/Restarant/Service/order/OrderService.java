@@ -1,11 +1,14 @@
-package com.order.Restarant.Service;
+package com.order.Restarant.Service.order;
 
-import com.order.Restarant.Controller.OrderResponse;
-import com.order.Restarant.Repo.DishRepository;
-import com.order.Restarant.Repo.OrderRepository;
-import com.order.Restarant.model.OrderDetailEntity;
-import com.order.Restarant.Controller.OrderDetailsRequest;
-import com.order.Restarant.model.OrderEntity;
+
+import com.order.Restarant.Controller.order.OrderDetailsRequest;
+import com.order.Restarant.Controller.order.OrderResponse;
+
+
+import com.order.Restarant.Repo.order.DishRepository;
+import com.order.Restarant.Repo.order.OrderRepository;
+import com.order.Restarant.model.order.OrderDetailEntity;
+import com.order.Restarant.model.order.OrderEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

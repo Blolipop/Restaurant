@@ -1,4 +1,4 @@
-package com.order.Restarant.Controller;
+package com.order.Restarant.Controller.order;
 
 
 import lombok.Getter;

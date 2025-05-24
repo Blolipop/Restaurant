@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>登入</title>
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: "Georgia", "Garamond", "Times New Roman", serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 300px;
+        }
+
+        input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 0.6rem;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>Restaurant</h1>
+<h2>登入</h2>
+<form id="login-form" method="post">
+    <input type="text" id="username" placeholder="帳號" required>
+    <input type="password" id="password" placeholder="密碼" required>
+    <button type="submit">登入</button>
+</form>
+
+<script>
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        const response = await fetch("/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            localStorage.setItem("token", data.token);
+
+            alert("登入成功！");
+            window.location.href = "/dishes";
+        } else {
+            const err = await response.text();
+            alert("登入失敗：" + err);
+        }
+    });
+</script>
+</body>
+</html>
