@@ -21,6 +21,21 @@
 
 ---
 
+## 📖 學習亮點
+Login system using by JWT token ,but also connected the html request . 
+
+Showing the JWT mixed HTML at practical working .
+
+Using ERD tech and data normalization build database .
+
+A layout design  to show the customer main fuc.
+
+CI/CD to build own code online .
+
+AJ/AX request to add new dishes .
+
+---
+
 ## 🔧 技術棧
 
 - **Spring Boot 3.4.5**
